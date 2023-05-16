@@ -31,6 +31,7 @@ import { EditDialogComponent } from './components/edit-dialog/edit-dialog.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 
@@ -43,7 +44,8 @@ import { Location } from '@angular/common';
     CatalogueComponent,
     InsertProductComponent,
     ConfirmDialogComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

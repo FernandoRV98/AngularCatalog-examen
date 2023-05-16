@@ -5,7 +5,8 @@ import { Location } from '@angular/common';
 
 import { Product } from 'src/app/models/producto.model';
 import { DialogRef } from '@angular/cdk/dialog';
-
+import { DialogComponent } from '../dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -21,7 +22,7 @@ export class InsertProductComponent {
   initilaFormValues: any = {};
   
 
-  constructor(private http: HttpClient, private location: Location, private formBuilder: FormBuilder) {
+  constructor(private http: HttpClient, private location: Location, private formBuilder: FormBuilder, private dialog: MatDialog) {
     this.productForm = this.formBuilder.group({
       title: ['', Validators.required],
       price: ['', Validators.required],
@@ -42,12 +43,17 @@ export class InsertProductComponent {
     this.http.post<any>(url_api, this.product).subscribe(
       (response) => {
         // Producto guardado exitosamente
-        alert('Product saved successfully');
         console.log('Product saved successfully:', response);
         // Restablecer los campos del formulario
         this.product = {};
 
-        console.log(response.product);
+        const dialogRef = this.dialog.open(DialogComponent, {
+          width: '250px',
+          data: { title: 'Product saved successfully' }
+
+        });
+
+        //console.log(response.product);
         //recargar el dashboard
         //this.location.back();
 

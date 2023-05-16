@@ -5,6 +5,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+import { DialogComponent } from '../dialog/dialog.component';
 import { ViewChild, ElementRef } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
@@ -58,6 +59,9 @@ export class DashboardComponent implements OnInit{
       if (index !== -1) {
         this.products.splice(index, 1);
       }
+      const dialogRef = this.dialog.open(DialogComponent, {
+        data: { title: 'Product delete successfully' }
+      });
     });
   }
 
@@ -74,15 +78,19 @@ export class DashboardComponent implements OnInit{
       }
     });
   }
+
   selectedProduct: Product | undefined;
+
+  //METODO PARA ACTUALIZAR LAS CARDS DE LOS PRODUCTOS
   updateProduct(product: Product) {
     const url_api = 'https://fakestoreapi.com/products/' + product.id;
-    
     // Realizar la petición PUT a tu API con los datos actualizados
     this.http.put<Product>(url_api, product).subscribe(
       (updatedProduct) => {
         // La actualización se realizó con éxito
-        alert('Product updated successfully');
+        const dialogRef = this.dialog.open(DialogComponent, {
+          data: { title: 'Product updated successfully' }
+        });
         console.log('Product updated successfully:', updatedProduct);
         // Actualizar el producto en el array de productos
         const index = this.products.findIndex(p => p.id === updatedProduct.id);
@@ -92,7 +100,9 @@ export class DashboardComponent implements OnInit{
       },
       (error) => {
         // Ocurrió un error durante la actualización
-        alert('Error updating product');
+        const dialogRef = this.dialog.open(DialogComponent, {
+          data: { title: 'Error updating product' }
+        });
         console.error('Error updating product:', error);
       }
     );
