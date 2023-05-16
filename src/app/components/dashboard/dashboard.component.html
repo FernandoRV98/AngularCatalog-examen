@@ -1,8 +1,10 @@
+<!--HTML PARA LAS CARDS QUE SE VAN GENERANDO POR PRODUCTO-->
 <mat-grid-list cols="2" rowHeight="520px">
   <mat-grid-tile *ngFor="let product of products">
     <mat-card #cardElement class="custom-card">
       <mat-card-header>
         <mat-card-title-group>
+          <!--ENCABEZADO DE LA CARD-->
           <mat-card-title class="mat-card-header-text">{{ product.title }}</mat-card-title>
           <mat-card-subtitle><b>ID: </b>{{product.id}}</mat-card-subtitle>
           <img mat-card-sm-image [src]="product.image">
@@ -10,6 +12,8 @@
         
       </mat-card-header>
       <mat-card-content class="mat-card-content-center">
+
+        <!--CUERPO DE LA CARD-->
         
         <p class="card-price"><b>Price: </b>{{product.price}}</p>
         <p><b>Description: </b>{{product.description}}</p>
@@ -19,6 +23,7 @@
       </mat-card-content>
 
       <mat-card-actions class="mat-card-actions-right">
+        <!--BOTONES DE LA CARD-->
         <button mat-button [matMenuTriggerFor]="menu">
           <mat-icon>more_vert</mat-icon>
         </button>

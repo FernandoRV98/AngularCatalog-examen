@@ -10,16 +10,19 @@ import { Product } from 'src/app/models/producto.model';
 })
 export class CatalogueComponent {
 
+  //DECLARACION DE VARIABLES
   title = 'Catalogue of products';
   http = inject(HttpClient);
   products: Product[] = [];
 
   url_api = "https://fakestoreapi.com/products";
 
+  //METODO CONSTRUCTOR
   ngOnInit() {
     this.loadProducts();
   }
 
+  //METODO PARA CARGAR LOS PRODUCTOS
   loadProducts() {
     this.http.get<Product[]>(this.url_api).subscribe((data) => {
       this.products = data;

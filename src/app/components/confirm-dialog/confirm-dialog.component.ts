@@ -9,6 +9,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class ConfirmDialogComponent {
 
+  //CONSTUCTOR DEL DIALOGO PARA CONFIRMAR LA ELIMINACION DE UN PRODUCTO
   constructor(
     public dialogRef: MatDialogRef<ConfirmDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: string

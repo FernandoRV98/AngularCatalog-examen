@@ -1,27 +1,32 @@
+<!--ESTRUCUTURA DEL FORMULARIO DE ACTUALIZACION QUE SE CARGA EN UN OPEN DIALOG-->
 <h2 mat-dialog-title>Update Product</h2>
 <mat-dialog-content>
+  <!--SE DECLARA EL FROMULARIO-->
   <form [formGroup]="updateForm">
+    <!--SE DECLARAN LOS CAMPOS DEL FORMULARIO-->
+    <!--CAMPO TITLE-->
     <mat-form-field>
       <input matInput formControlName="title" placeholder="Title">
     </mat-form-field>
-
+    <!--CAMPO DESCRIPTION-->
     <mat-form-field>
       <textarea matInput formControlName="description" placeholder="Description"></textarea>
     </mat-form-field>
-
+    <!--CAMPO PRICE-->
     <mat-form-field>
       <input matInput type="number" formControlName="price" placeholder="Price">
     </mat-form-field>
-
+    <!--CAMPO CATEGORY-->
     <mat-form-field>
       <input matInput formControlName="category" placeholder="Category">
     </mat-form-field>
-
+    <!--CAMPO IMAGE-->
     <mat-form-field>
       <input matInput type="file" (change)="handleFileInput($event)" placeholder="Image">
     </mat-form-field>
   </form>
 </mat-dialog-content>
+<!--SE DEFINEN LAS ACCIONES PARA EL DIALOG-->
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-raised-button color="primary" [mat-dialog-close]="{ product: updatedProduct }" (click)="saveChanges()">Save</button>
