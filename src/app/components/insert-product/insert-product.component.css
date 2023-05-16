@@ -1,0 +1,30 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Estilo para el formulario */
+mat-form-field {
+  width: 100%; /* Ajusta el ancho según tus necesidades */
+  position: relative; /* Ajusta la posición según tus necesidades */
+}
+
+/* Estilo para la etiqueta del campo */
+mat-form-field {
+  color: #c9c9c9; /* Cambia el color según tus necesidades */
+  font-size: 14px; /* Cambia el tamaño de fuente según tus necesidades */
+}
+
+/* Estilo para el campo de entrada */
+input, textarea {
+  background-color: #ffffff; /* Cambia el color de fondo según tus necesidades */
+  border: none; /* Remueve el borde si no es necesario */
+  padding: 8px; /* Ajusta el espaciado interno según tus necesidades */
+  font-size: 16px; /* Cambia el tamaño de fuente según tus necesidades */
+  border: 1px solid #ccc; /* Agrega un borde de 1 píxel sólido de color gris */
+  border-radius: 4px; /* Agrega bordes redondeados si lo deseas */
+}
+
+/* Estilo para el campo de entrada en foco */
+input:focus, textarea:focus {
+  outline: none; /* Remueve el contorno en foco si no es necesario */
+  box-shadow: 0 0 3px #2196F3; /* Cambia el sombreado en foco según tus necesidades */
+}
+

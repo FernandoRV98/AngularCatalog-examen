@@ -1,0 +1,25 @@
+<h2>Insert Product</h2>
+
+<form (ngSubmit)="saveProduct()" #productForm="ngForm" enctype="multipart/form-data">
+  <mat-form-field>
+    <input matInput name="title" placeholder="Title" [(ngModel)]="product.title" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput name="description" placeholder="Description" [(ngModel)]="product.description" required></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput name="price" type="number" placeholder="Price" [(ngModel)]="product.price" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput name="category" placeholder="Category" [(ngModel)]="product.category" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="file" name="image" (change)="handleFileInput($event)" required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>
